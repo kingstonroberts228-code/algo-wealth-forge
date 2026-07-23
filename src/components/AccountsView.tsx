@@ -88,16 +88,16 @@ export function AccountsView() {
                    <Clock weight="fill" className="text-sm" />}
                 </div>
                 <div>
-                  <div className="text-sm text-white">{tx.type === "deposit" ? "Deposit" : tx.type === "withdrawal" ? "Withdrawal" : "Trade"}</div>
+                  <div className="text-sm text-white">{tx.type === "deposit" ? "Deposit" : tx.type === "withdraw" ? "Withdrawal" : "Trade"}</div>
                   <div className="text-xs text-gray-500">{tx.date}</div>
                 </div>
               </div>
               <div className="text-right">
                 <div className={`text-sm font-medium ${
                   tx.type === "deposit" ? "text-green-400" :
-                  tx.type === "withdrawal" ? "text-red-400" : "text-white"
+                  tx.type === "withdraw" ? "text-red-400" : "text-white"
                 }`}>
-                  {tx.type === "deposit" ? "+" : tx.type === "withdrawal" ? "-" : ""}
+                  {tx.type === "deposit" ? "+" : tx.type === "withdraw" ? "-" : ""}
                   ${tx.amount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 </div>
                 <div className="text-xs text-gray-500">{tx.currency}</div>
