@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Lightning, ChartLine, ShieldCheck, Robot, Coins, ArrowsLeftRight, Headset, Wallet, Sliders, ArrowsClockwise, ChartDonut, CaretDown, Sparkle } from "@phosphor-icons/react";
+import type { Icon } from "@phosphor-icons/react";
 import { useApp } from "../context/AppContext";
 import { FEATURES, HOW_IT_WORKS, MARKET_STATS } from "../constants/mockData";
 
@@ -7,7 +8,7 @@ const fadeUp = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.6, ease: "easeOut" },
+  transition: { duration: 0.6, ease: "easeOut" as const },
 };
 
 const stagger = {
@@ -17,11 +18,11 @@ const stagger = {
   transition: { staggerChildren: 0.1, delayChildren: 0.1 },
 };
 
-const featureIcons: Record<string, React.ElementType> = {
+const featureIcons: Record<string, Icon> = {
   ShieldCheck, Robot, ChartLine, Coins, ArrowsLeftRight, Headset,
 };
 
-const stepIcons: Record<string, React.ElementType> = {
+const stepIcons: Record<string, Icon> = {
   Wallet, Sliders, ArrowsClockwise, ChartDonut,
 };
 

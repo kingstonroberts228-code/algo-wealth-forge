@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Lightning, X, List, User, Wallet, Gear, Robot, ChartLine, SignOut } from "@phosphor-icons/react";
+import { Lightning, X, List, User, Wallet, Gear, Robot, ChartLine, SignOut, Bell } from "@phosphor-icons/react";
 import { useApp } from "../context/AppContext";
 
 export function Navbar() {

@@ -6,14 +6,14 @@ import { useApp } from "../context/AppContext";
 type AuthMode = "login" | "signup" | "totp" | "forgot";
 
 export function AuthScreens() {
-  const { state, navigateTo, login } = useApp();
+  const { state, navigateTo, login, signup } = useApp();
   const mode = state.auth.currentView as AuthMode;
 
   return (
     <div className="min-h-screen bg-[#0A0A0F] flex items-center justify-center p-4">
       <AnimatePresence mode="wait">
         {mode === "login" && <LoginForm key="login" navigateTo={navigateTo} login={login} />}
-        {mode === "signup" && <SignupForm key="signup" navigateTo={navigateTo} login={login} />}
+        {mode === "signup" && <SignupForm key="signup" navigateTo={navigateTo} signup={signup} />}
         {mode === "totp" && <TOTPForm key="totp" navigateTo={navigateTo} login={login} />}
         {mode === "forgot" && <ForgotForm key="forgot" navigateTo={navigateTo} />}
       </AnimatePresence>
@@ -21,14 +21,14 @@ export function AuthScreens() {
   );
 }
 
-function LoginForm({ navigateTo, login }: { navigateTo: (v: string) => void; login: (u: any) => void }) {
+function LoginForm({ navigateTo, login }: { navigateTo: (v: string) => void; login: (email: string, password: string) => Promise<void> }) {
   const [showPw, setShowPw] = useState(false);
   const [email, setEmail] = useState("demo@hercules.ai");
   const [password, setPassword] = useState("demo123");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    login({ name: "Alex Rivera", email, avatar: null });
+    await login(email, password);
   };
 
   return (
@@ -113,15 +113,15 @@ function LoginForm({ navigateTo, login }: { navigateTo: (v: string) => void; log
   );
 }
 
-function SignupForm({ navigateTo, login }: { navigateTo: (v: string) => void; login: (u: any) => void }) {
+function SignupForm({ navigateTo, signup }: { navigateTo: (v: string) => void; signup: (email: string, password: string, name: string) => Promise<void> }) {
   const [showPw, setShowPw] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    login({ name, email, avatar: null });
+    await signup(email, password, name);
   };
 
   return (
@@ -211,7 +211,7 @@ function SignupForm({ navigateTo, login }: { navigateTo: (v: string) => void; lo
   );
 }
 
-function TOTPForm({ navigateTo, login }: { navigateTo: (v: string) => void; login: (u: any) => void }) {
+function TOTPForm({ navigateTo, login }: { navigateTo: (v: string) => void; login: (email: string, password: string) => Promise<void> }) {
   const [code, setCode] = useState(["", "", "", "", "", ""]);
 
   const handleChange = (i: number, v: string) => {
@@ -225,9 +225,9 @@ function TOTPForm({ navigateTo, login }: { navigateTo: (v: string) => void; logi
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    login({ name: "Alex Rivera", email: "demo@hercules.ai", avatar: null });
+    await login("demo@hercules.ai", "demo123");
   };
 
   return (
