@@ -71,6 +71,8 @@ export interface Transaction {
   value: number;
   status: 'pending' | 'completed' | 'failed';
   timestamp: string;
+  date: string;
+  currency: string;
 }
 
 export interface ChecklistItem {

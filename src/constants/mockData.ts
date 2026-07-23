@@ -30,7 +30,7 @@ export const QUICK_ACTIONS: QuickAction[] = [
   { label: 'Swap', icon: 'ArrowsClockwise', color: '#627EEA' },
 ];
 
-export const BOTS: TradingBot[] = [
+export const BOTS: Coin[] = [
   { id: 'bitcoin', symbol: 'BTC', name: 'Bitcoin', icon: '₿', price: 96420, change24h: 4.2, holdings: 0.45, value: 43389, color: '#F7931A', sparkline: [92000, 93500, 94800, 94100, 95500, 96200, 96420] },
   { id: 'ethereum', symbol: 'ETH', name: 'Ethereum', icon: '⟠', price: 3450, change24h: -1.8, holdings: 4.2, value: 14490, color: '#627EEA', sparkline: [3520, 3480, 3500, 3440, 3420, 3460, 3450] },
   { id: 'solana', symbol: 'SOL', name: 'Solana', icon: '◎', price: 142, change24h: 6.5, holdings: 25, value: 3550, color: '#00D18C', sparkline: [133, 136, 138, 140, 139, 141, 142] },
@@ -95,11 +95,11 @@ export const MOCK_BOTS: TradingBot[] = [
 ];
 
 export const MOCK_TRANSACTIONS: Transaction[] = [
-  { id: 'tx1', type: 'deposit', coin: 'USDT', amount: 10000, value: 10000, status: 'completed', timestamp: '2024-01-15T10:00:00Z' },
-  { id: 'tx2', type: 'buy', coin: 'BTC', amount: 0.25, value: 24000, status: 'completed', timestamp: '2024-01-15T10:05:00Z' },
-  { id: 'tx3', type: 'buy', coin: 'ETH', amount: 3.0, value: 10350, status: 'completed', timestamp: '2024-01-15T10:10:00Z' },
-  { id: 'tx4', type: 'deposit', coin: 'USDT', amount: 5000, value: 5000, status: 'completed', timestamp: '2024-01-20T14:00:00Z' },
-  { id: 'tx5', type: 'withdraw', coin: 'USDT', amount: 2000, value: 2000, status: 'pending', timestamp: '2024-01-22T09:00:00Z' },
+  { id: 'tx1', type: 'deposit', coin: 'USDT', amount: 10000, value: 10000, status: 'completed', timestamp: '2024-01-15T10:00:00Z', date: 'Jan 15, 2024', currency: 'USDT' },
+  { id: 'tx2', type: 'buy', coin: 'BTC', amount: 0.25, value: 24000, status: 'completed', timestamp: '2024-01-15T10:05:00Z', date: 'Jan 15, 2024', currency: 'BTC' },
+  { id: 'tx3', type: 'buy', coin: 'ETH', amount: 3.0, value: 10350, status: 'completed', timestamp: '2024-01-15T10:10:00Z', date: 'Jan 15, 2024', currency: 'ETH' },
+  { id: 'tx4', type: 'deposit', coin: 'USDT', amount: 5000, value: 5000, status: 'completed', timestamp: '2024-01-20T14:00:00Z', date: 'Jan 20, 2024', currency: 'USDT' },
+  { id: 'tx5', type: 'withdraw', coin: 'USDT', amount: 2000, value: 2000, status: 'pending', timestamp: '2024-01-22T09:00:00Z', date: 'Jan 22, 2024', currency: 'USDT' },
 ];
 
 export const CHECKLIST_ITEMS: ChecklistItem[] = [
