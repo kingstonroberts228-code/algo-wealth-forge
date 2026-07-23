@@ -65,12 +65,14 @@ export interface BotParameter {
 
 export interface Transaction {
   id: string;
-  type: 'deposit' | 'withdraw' | 'buy' | 'sell' | 'swap';
+  type: 'deposit' | 'withdrawal' | 'buy' | 'sell' | 'swap';
   coin: string;
   amount: number;
   value: number;
   status: 'pending' | 'completed' | 'failed';
   timestamp: string;
+  date?: string;
+  currency?: string;
 }
 
 export interface ChecklistItem {
